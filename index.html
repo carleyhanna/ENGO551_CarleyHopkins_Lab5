@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>ENGO 551 Lab 5</title>
+<meta charset="utf-8" />
+<!--Leaflet Load -->
+<link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.css"/>
+<!--Local CSS -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!--Set Map Size-->
+<div id="map" style="width: 1500px; height: 650px;"></div >
+<!--Simplify and Clear Buttons-->
+<button style= margin-right:55px; onclick="buttonFunc">Simplify</button>
+<button style= margin-left:30px; onClick="buttonClear">Clear</button>
+
+<!--Link to Leaflet-->
+<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js" > </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/0.2.3/leaflet.draw.js" > </script>
+<!--Link to Turf-->
+<script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+<!--Link to JS-->
+<script type="text/javascript" src="mapLayer.js"></script>
+
+<script>
+//Simplifying the line with button click
+function buttonFunc(){
+  simplified = turf.simplify(Polyline);
+  console.log(simplified);
+  createdLines.addData(simplified);
+}
+//Clearing the Polyline
+function buttonClear(){
+  createdLines.clearLayers();
+  drawnItems.clearLayers();
+}
+</script>
+</body>
+</html>
